@@ -176,7 +176,11 @@
 
             // Listen for mouse over event on suggestions list:
             container.on('mouseover.autocomplete', suggestionSelector, function () {
-                that.activate($(this).data('index'));
+
+                var index = $(this).data('index');
+                that.activate(index);
+                that.el.val(that.getValue(that.suggestions[index].value));
+
             });
 
             // Deselect active element when mouse leaves suggestions container:
